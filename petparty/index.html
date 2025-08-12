@@ -1,0 +1,123 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>蛋蛋派</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=IE9">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0, minimal-ui">
+
+
+    <script id="booster-api" type="text/javascript" src="shared/booster/api.js"></script>
+    <link rel = "stylesheet" href = "style.css" type = "text/css" media = "screen">
+    <!--<script type="text/javascript" src="http://games.gamesplaza.com/shared/booster/v0.36/js/booster-api.js"></script>-->
+    <script src="Lib/phaser.min.js"></script>
+    <script src="JS/extLib/Loader.js"></script>
+    <script src="JS/extLib/Canvas.js"></script>
+    <script src="JS/extLib/ZyngaScroller-min.js"></script>
+    <script src="JS/extLib/CWScroller-min-0.1.js"></script>
+    <script src="JS/extLib/AttemptTimer.js"></script>
+    <script src="JS/extLib/localDataModel.js"></script>
+    <script src="JS/LoadingScreen.js"></script>
+    <script src="JS/BoosterApi.js"></script>
+    <script src="JS/MainMenu.js"></script>
+    <script src="JS/InGameTutorial.js"></script>
+    <script src="JS/LevelUp.js"></script>
+    <script src="JS/GameOver.js"></script>
+    <script src="JS/MagicMonsters.js"></script>
+    <script src="JS/LevelSelection.js"></script>
+    <script src="JS/gameConfig.js"></script>
+    <script type="text/javascript">
+        var Booster = window.Booster || {};
+        Booster.ready = function () {
+            new Booster.Init({orientation: 'portrait', splash: true, minimalUI: false});
+            //-- Calls to Booster functions for the game.
+            configObj.community = new Booster.Community({position: 14, gameCode : '0001-pet_pop_part'});
+        };
+    </script>
+
+
+</head>
+<body>
+  <div id="gameContainer" style="position: relative;">
+      <div id = "game"></div>
+  </div>
+  <div id="customModal" style="background-color: #f4c670;border-radius: 10px;box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.2);">
+    <div style="text-align: center;font-size: 25px;font-weight: 700;padding-bottom: 20px;">看视频加5颗心</div>
+    <div style="font-size: 16px;color: #ff0000;text-align: center;"></div>
+    
+    <video id="videoPlayer" autoplay   >
+        <source src="https://lf3-beecdn.bytetos.com/obj/ies-fe-bee/bee_prod/biz_809/tos_2f44d947f7d9be3ed513bb69a5617ddc.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div style="display: flex;margin-top: 10px;">
+        <button id="restartButton" style="display:none;">继续游戏</button>
+        <button id="resetButton">关闭</button>
+    </div>
+    
+</div>
+
+<style>
+       #customModal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            width: 400px;
+            height: 420px;
+        }
+         #videoPlayer{
+            width: 300px;
+            height: 300px;
+         }
+        #customModal h2 {
+            margin-top: 0;
+        }
+
+        #customModal video {
+            width: 100%;
+            max-width: 640px;
+        }
+
+        #restartButton {
+            margin-right: 20px;
+            padding: 10px 20px;
+            background-color: #d32f2f;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            display: none; /* Initially hide the restart button */
+        }
+
+        #restartButton:hover {
+            background-color: #ff0000;
+        }
+        #resetButton {
+    padding: 10px 20px;
+    background-color: #45a049;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+}
+ 
+#resetButton:hover {
+    background-color: #45a049;
+}
+
+
+
+</style>
+
+</body>
+</html>
