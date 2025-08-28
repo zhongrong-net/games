@@ -1,0 +1,113 @@
+
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>爆破魔物</title>
+        <script type="text/javascript" src="./phaser.min.js"></script>
+        <script type="text/javascript" src="game.js"></script>
+    </head>
+    <body>
+    	<div id="container">
+            <!-- <div  id="dianj">加血</div> -->
+	        <div id="gameDiv"></div>
+
+
+
+
+        </div>
+        <!-- Custom Modal -->
+    <div id="customModal">
+        <div style="text-align: center;font-size: 25px;font-weight: 700;">游戏结束</div>
+        <div style="font-size: 16px;color: #ff0000;text-align: center;">(观看广告，下一次挑战血量增加！！！)</div>
+        
+        <video id="videoPlayer" autoplay  >
+            <source src="https://lf3-beecdn.bytetos.com/obj/ies-fe-bee/bee_prod/biz_809/tos_2f44d947f7d9be3ed513bb69a5617ddc.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div style="display: flex;">
+            <button id="restartButton" style="display:none;"></button>
+            <button id="resetButton">返回菜单</button>
+        </div>
+        
+    </div>
+
+
+
+
+        <script type="text/javascript">
+            var game = new Phaser.Game(960, 640, Phaser.AUTO, 'gameDiv');
+
+            game.state.add('load', loadState);
+            game.state.add('menu', menuState);
+            game.state.add('level', levelState);
+            game.state.add('play', playState);
+
+            game.state.start('load');
+        </script>     
+        <style type="text/css">
+            * {
+                margin: 0px;
+                padding: 0px;
+            }
+            #customModal {
+            display: none;
+            position: fixed;
+            top: 45%;
+            left: 25%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            width: 400px;
+            height: 420px;
+        }
+         #videoPlayer{
+            width: 300px;
+            height: 300px;
+         }
+        #customModal h2 {
+            margin-top: 0;
+        }
+
+        #customModal video {
+            width: 100%;
+            max-width: 640px;
+        }
+
+        #restartButton {
+            margin-right: 20px;
+            padding: 10px 20px;
+            background-color: #d32f2f;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            display: none; /* Initially hide the restart button */
+        }
+
+        #restartButton:hover {
+            background-color: #ff0000;
+        }
+        #resetButton {
+    padding: 10px 20px;
+    background-color: #45a049;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+}
+ 
+#resetButton:hover {
+    background-color: #45a049;
+}
+
+
+        </style>   
+    </body>
+</html> 
